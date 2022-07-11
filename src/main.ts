@@ -15,6 +15,8 @@ async function bootstrap() {
       maxAge: 60000,
     }
   }))
+  app.use(passport.initialize())
+  app.use(passport.session())
   await app.listen(5001);
 }
 bootstrap();

@@ -4,6 +4,7 @@ import { CustomersModule } from './customers/customers.module';
 import entities from './typeorm';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [CustomersModule, UsersModule, TypeOrmModule.forRoot({
@@ -15,7 +16,7 @@ import { AuthModule } from './auth/auth.module';
     database: 'nestjs-db',
     entities: entities,
     synchronize: true
-  }), AuthModule],
+  }), AuthModule, PassportModule.register({session: true})],
   controllers: [],
   providers: [],
 })

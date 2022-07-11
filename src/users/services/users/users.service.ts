@@ -31,4 +31,8 @@ export class UsersService {
         const newUser = this.userRepository.create({...createUserDto, password});
         return this.userRepository.save(newUser)
     }
+
+    findUserById(id: number) {
+        return this.userRepository.findOne({where : {id: id}})
+    }
 }
